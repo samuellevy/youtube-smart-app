@@ -29,6 +29,7 @@
         "camelcase": "off",
         "@typescript-eslint/ban-types": "off",
         "no-use-before-define": "off",
+        "react/no-unescaped-entities":"off",
         "import/extensions": [
             "error",
             "ignorePackages",
