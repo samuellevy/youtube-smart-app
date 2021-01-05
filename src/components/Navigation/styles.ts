@@ -5,3 +5,9 @@ export const Container = styled.div`
   background-color: black;
   height: 100vh;
 `;
+export const Nav = styled.div`
+
+`;
+export const Content = styled.div`
+
+`;
