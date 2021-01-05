@@ -11,6 +11,9 @@ const Track: React.FC = () => (
       <VideoCard />
       <VideoCard />
       <VideoCard />
+      <VideoCard />
+      <VideoCard />
+      <VideoCard />
     </S.Content>
   </S.Container>
 );

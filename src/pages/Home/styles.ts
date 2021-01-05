@@ -3,6 +3,7 @@ import { colors } from '../../global';
 
 export const Container = styled.div`
   padding: 25px 0 0 25px;
+  padding-left: 195px;
 `;
 export const PageTitle = styled.h1`
   color: ${colors.gray};
