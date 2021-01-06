@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 
+import { useHistory } from 'react-router-dom';
 import * as S from './styles';
 import Icon from '../Icon';
-import { changeComponent, useKeyboardContext } from '../../context/KeyboardContext';
+import { useKeyboardContext, changeComponent } from '../../context/KeyboardContext';
 
 const Navigation: React.FC = () => {
   const [items] = useState([
@@ -27,12 +28,14 @@ const Navigation: React.FC = () => {
   const [activeMenu, setActiveMenu] = useState(false);
 
   const { keyboard, dispatch }: any = useKeyboardContext();
+  const history = useHistory();
 
   useEffect(() => {
     if (keyboard.component === 'menu') {
       setActiveMenu(true);
       console.log(keyboard);
       controlHandler(keyboard.key);
+      history.push(`/${items[activeItem].slug}`);
     }
   }, [keyboard]);
 
@@ -62,7 +65,7 @@ const Navigation: React.FC = () => {
         <span>Entrar</span>
       </S.Header>
       {items.map((item, key) => (
-        <S.Item key={item.slug} selected={activeItem === key}>
+        <S.Item key={item.slug} selected={activeItem === key} activeMenu={activeMenu}>
           <Icon name={item.slug} />
           <span>{item.title}</span>
         </S.Item>

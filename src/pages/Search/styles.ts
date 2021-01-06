@@ -9,8 +9,7 @@ export const Container = styled.div<IContainer>`
   padding: 25px 0 0 25px;
   padding-left: 250px;
   transform: ${(props) => (props.active ? 'translateX(-140px)' : 'translateX(0)')};
-  opacity: 1;
-  transition: all 200ms linear;
+  transition: transform 200ms linear;
 `;
 export const PageTitle = styled.h1`
   color: ${colors.gray};

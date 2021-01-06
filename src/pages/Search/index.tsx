@@ -5,7 +5,7 @@ import { useKeyboardContext, changeComponent } from '../../context/KeyboardConte
 
 import * as S from './styles';
 
-const Home: React.FC = () => {
+const Search: React.FC = () => {
   const { keyboard, dispatch }: any = useKeyboardContext();
   const [activePage, setActivePage] = useState(false);
 
@@ -14,30 +14,15 @@ const Home: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    if (keyboard.component === 'home') {
+    if (keyboard.component === 'search') {
       setActivePage(true);
-      controlHandler(keyboard.key);
     }
   }, [keyboard]);
 
-  const controlHandler = (key: string) => {
-    switch (key) {
-      case 'ArrowLeft':
-        dispatch(changeComponent('menu'));
-        setActivePage(false);
-        break;
-      default:
-        break;
-    }
-  };
-
   return (
     <S.Container active={activePage}>
-      <S.PageTitle>Home</S.PageTitle>
-      <Track />
-      <Track />
-      <Track />
+      <S.PageTitle>Search</S.PageTitle>
     </S.Container>
   );
 };
-export default Home;
+export default Search;

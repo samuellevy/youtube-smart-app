@@ -11,8 +11,8 @@ const App: React.FC = () => (
     <GlobalStyle />
     <KeyboardProvider>
       <KeyboardHandle />
-      <Navigation />
       <BrowserRouter>
+        <Navigation />
         <Routes />
       </BrowserRouter>
     </KeyboardProvider>

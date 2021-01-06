@@ -7,6 +7,7 @@ interface IContainerMenu {
 
 interface IItem {
   selected?: boolean
+  activeMenu?:boolean;
 }
 
 export const Container = styled.div<IContainerMenu>`
@@ -49,9 +50,19 @@ export const Item = styled.li<IItem>`
     fill: ${colors.white};
     margin: 0 10px;
   }
+  span{
+    opacity: 1;
+  }
   ${(props) => props.selected && `
     background-color: ${colors.grayBg};
     transition: background-color 200ms linear;
   `};
-  }
+
+  ${(props) => !props.activeMenu && `
+    transform: translateX(130px);
+    span{opacity: 0;}
+    transition: all 200ms linear;
+  `}
+  
+  
 `;
