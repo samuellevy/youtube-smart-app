@@ -2,15 +2,30 @@ import React from 'react';
 
 import * as S from './styles';
 
-const VideoCard: React.FC = () => (
+interface IVideoCardComponent {
+  data: IVideoCardItem;
+  active?: boolean;
+}
+
+interface IVideoCardItem {
+  title: string;
+  author: string;
+  views: string;
+  publishDate: string;
+  active?: boolean;
+}
+
+const VideoCard: React.FC<IVideoCardComponent> = ({ data, active }: IVideoCardComponent) => (
   <S.Container>
-    <S.ThumbBox>
+    <S.ThumbBox active={active}>
       <S.ThumbImage src="https://i.ytimg.com/vi/vJJX5gmP7oA/mqdefault.jpg" alt="" />
     </S.ThumbBox>
-    <S.Title>Harry Potter e a Pedra Filosofal</S.Title>
-    <S.Author>Warner Bros.</S.Author>
+    <S.Title>{data.title}</S.Title>
+    <S.Author>{data.author}</S.Author>
     <S.Footer>
-      <S.Info>3.3M views • 3 years ago</S.Info>
+      <S.Info>
+        {`${data.views} views • ${data.publishDate}`}
+      </S.Info>
     </S.Footer>
   </S.Container>
 );
