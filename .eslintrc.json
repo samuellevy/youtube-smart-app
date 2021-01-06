@@ -35,6 +35,8 @@
         "@typescript-eslint/no-unused-vars": "off",
         "react/jsx-props-no-spreading": "off",
         "@typescript-eslint/no-explicit-any": "off",
+        "react/no-unused-prop-types": "off",
+        "react/require-default-props": "off",
         "import/extensions": [
             "error",
             "ignorePackages",
