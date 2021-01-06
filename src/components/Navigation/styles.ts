@@ -1,17 +1,23 @@
 import styled from 'styled-components';
 import { colors } from '../../global';
 
+interface IContainerMenu {
+  active?: boolean;
+}
+
 interface IItem {
   selected?: boolean
 }
 
-export const Container = styled.div`
+export const Container = styled.div<IContainerMenu>`
   position: fixed;
   width: 220px;
   background-color: black;
   height: 100vh;
   display: flex;
   flex-direction: column;
+  transform: ${(props) => (props.active ? 'translateX(0)' : 'translateX(-140px)')};
+  transition: transform 200ms linear;
 `;
 
 export const Avatar = styled.div`
@@ -44,12 +50,8 @@ export const Item = styled.li<IItem>`
     margin: 0 10px;
   }
   ${(props) => props.selected && `
-    background-color: ${colors.gray};
-    color: ${colors.darkGray};
-    transition: background-color 500ms linear;
-    svg{
-      fill: ${colors.darkGray};
-    }
+    background-color: ${colors.grayBg};
+    transition: background-color 200ms linear;
   `};
   }
 `;

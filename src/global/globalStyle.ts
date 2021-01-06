@@ -17,6 +17,7 @@ const GlobalStyle = createGlobalStyle`
     background: ${colors.grayBg};
     color: #ffffff;
     font-family: 'Open Sans', Helvetica, Sans-Serif;
+    overflow: hidden;
   }
 `;
 
