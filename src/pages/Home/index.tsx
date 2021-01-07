@@ -24,14 +24,15 @@ const Home: React.FC = () => {
       setActivePage(true);
       controlHandler(keyboard.key);
     }
+    if (keyboard.component === 'menu') {
+      setActivePage(false);
+    }
   }, [keyboard]);
 
   const controlHandler = (key: string) => {
     let newActiveItem = activeItem;
     switch (key) {
       case 'ArrowLeft':
-        dispatch(changeComponent('menu'));
-        setActivePage(false);
         break;
       case 'ArrowDown':
         newActiveItem += tracks.length - 1 > newActiveItem ? 1 : 0;
@@ -45,11 +46,20 @@ const Home: React.FC = () => {
     setActiveItem(newActiveItem);
   };
 
+  const handleOut = () => {
+    dispatch(changeComponent('menu'));
+  };
+
   return (
     <S.Container active={activePage}>
-      <S.PageTitle>Home</S.PageTitle>
+      <S.PageTitle>HOME</S.PageTitle>
       {tracks.map((item, key) => (
-        <Track active={key === activeItem} title={item.title} id={item.id} />
+        <Track
+          active={key === activeItem}
+          title={item.title}
+          id={item.id}
+          handleOut={() => { handleOut(); }}
+        />
       ))}
     </S.Container>
   );

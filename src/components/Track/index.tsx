@@ -8,6 +8,7 @@ interface ITrackComponent {
   active?:boolean;
   title?:string;
   id?:number;
+  handleOut(): void;
 }
 
 interface IVideoCardItem {
@@ -18,7 +19,9 @@ interface IVideoCardItem {
   active?: boolean;
 }
 
-const Track: React.FC<ITrackComponent> = ({ active, title, id }:ITrackComponent) => {
+const Track: React.FC<ITrackComponent> = ({
+  active, title, id, handleOut,
+}:ITrackComponent) => {
   const data = [
     {
       title: 'Harry Potter e a Pedra Filosofal',
@@ -48,10 +51,31 @@ const Track: React.FC<ITrackComponent> = ({ active, title, id }:ITrackComponent)
   }, [active]);
 
   useEffect(() => {
-    if (keyboard.component === 'home') {
-      console.log(keyboard);
+    if (keyboard.component === 'home' && active && keyboard.key !== '') {
+      controlHandler(keyboard.key);
     }
   }, [keyboard]);
+
+  const controlHandler = (key: string) => {
+    let newActiveItem = activeItem;
+    switch (key) {
+      case 'ArrowLeft':
+        newActiveItem -= newActiveItem === -1 ? 0 : 1;
+        break;
+      case 'ArrowRight':
+        newActiveItem += data.length - 1 > newActiveItem ? 1 : 0;
+        break;
+      case 'Enter':
+        alert(data[activeItem].title);
+        break;
+      default:
+        break;
+    }
+    setActiveItem(newActiveItem);
+    if (newActiveItem === -1) {
+      handleOut();
+    }
+  };
 
   return (
     <S.Container>
