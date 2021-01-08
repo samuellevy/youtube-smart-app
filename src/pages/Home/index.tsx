@@ -17,6 +17,8 @@ const Home: React.FC = () => {
 
   useEffect(() => {
     dispatch(changeComponent('menu'));
+
+    console.log('tste');
   }, []);
 
   useEffect(() => {
