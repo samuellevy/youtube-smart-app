@@ -51,7 +51,7 @@ const Home: React.FC = () => {
   };
 
   return (
-    <S.Container active={activePage}>
+    <S.Container active={activePage} activeModule={activeItem > 0 ? activeItem : 0}>
       <S.PageTitle>HOME</S.PageTitle>
       {tracks.map((item, key) => (
         <Track

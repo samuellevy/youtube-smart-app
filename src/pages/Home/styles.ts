@@ -3,12 +3,13 @@ import { colors } from '../../global';
 
 interface IContainer {
   active?: boolean;
+  activeModule: number | 0;
 }
 
 export const Container = styled.div<IContainer>`
   padding: 25px 0 0 25px;
   padding-left: 250px;
-  transform: ${(props) => (props.active ? 'translateX(-140px)' : 'translateX(0)')};
+  transform: ${(props) => (props.active ? `translateX(-140px) translateY(${-520 * props.activeModule}px)` : 'translateX(0)')};
   opacity: 1;
   transition: all 200ms linear;
 `;
