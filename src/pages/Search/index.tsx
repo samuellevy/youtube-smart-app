@@ -16,8 +16,20 @@ const Search: React.FC = () => {
   useEffect(() => {
     if (keyboard.component === 'search') {
       setActivePage(true);
+      controlHandler(keyboard.key);
     }
   }, [keyboard]);
+
+  const controlHandler = (key: string) => {
+    switch (key) {
+      case 'ArrowLeft':
+        dispatch(changeComponent('menu'));
+        setActivePage(false);
+        break;
+      default:
+        break;
+    }
+  };
 
   return (
     <S.Container active={activePage}>
