@@ -75,7 +75,7 @@ const Track: React.FC<ITrackComponent> = ({
       params: {
         chart: 'mostPopular',
         videoCategoryId: categoryId,
-        part: 'snippet',
+        part: 'snippet,statistics',
       },
     });
 
@@ -129,8 +129,10 @@ const Track: React.FC<ITrackComponent> = ({
           <>
             <S.CategoryTitle>{item.title}</S.CategoryTitle>
             <S.Content>
-              {data.map((videoCardItem: IVideo, key) => (
+              {data.map((videoCardItem: IVideo, key: number) => (
                 <VideoCard
+                  position={key}
+                  activeItem={activeItem}
                   key={videoCardItem.id}
                   data={videoCardItem}
                   active={activeItem === key}

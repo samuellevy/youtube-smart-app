@@ -6,6 +6,8 @@ import * as S from './styles';
 interface IVideoCardComponent {
   data: IVideo;
   active?: boolean;
+  position: number;
+  activeItem: number;
 }
 
 interface IVideoCardItem {
@@ -16,8 +18,11 @@ interface IVideoCardItem {
   active?: boolean;
 }
 
-const VideoCard: React.FC<IVideoCardComponent> = ({ data, active }: IVideoCardComponent) => (
-  <S.Container>
+const VideoCard: React.FC<IVideoCardComponent> = ({
+  data, active,
+  position, activeItem,
+}: IVideoCardComponent) => (
+  <S.Container active={active} position={position} activeItem={activeItem}>
     <S.ThumbBox active={active}>
       <S.ThumbImage src={data.thumbnail.medium.url} alt="" />
     </S.ThumbBox>
