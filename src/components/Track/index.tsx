@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { useFavoritesContext } from '../../context/FavoriteContext';
 import { useKeyboardContext } from '../../context/KeyboardContext';
 import { IVideo } from '../../dtos/IVideo';
 import { IVideoCategory } from '../../dtos/IVideoCategory';
-import { api } from '../../services/mockapi';
+import { api } from '../../services/api';
 import VideoCard from '../VideoCard';
 
 import * as S from './styles';
@@ -34,6 +35,7 @@ const Track: React.FC<ITrackComponent> = ({
   const [data, setData] = useState<IVideo[]>([] as IVideo[]);
 
   const { keyboard, dispatch }: any = useKeyboardContext();
+  const { favorites }: any = useFavoritesContext();
 
   useEffect(() => {
     if (active === false) {
@@ -44,8 +46,10 @@ const Track: React.FC<ITrackComponent> = ({
   }, [active]);
 
   useEffect(() => {
-    if (keyboard.component === 'home' && active && keyboard.key !== '') {
-      controlHandler(keyboard.key);
+    if (keyboard.component === 'home' || keyboard.component === 'favorites') {
+      if (active && keyboard.key !== '') {
+        controlHandler(keyboard.key);
+      }
     }
   }, [keyboard]);
 
@@ -60,12 +64,29 @@ const Track: React.FC<ITrackComponent> = ({
   }, [data]);
 
   const getData = async (categoryId: string) => {
+    let ids = '';
+    favorites.favorites.map((favItem:any) => {
+      ids += `${favItem.id},`;
+
+      return true;
+    });
+
+    ids = ids.substr(0, ids.length - 1);
+    console.log(ids);
+
+    const params = {
+      chart: 'mostPopular',
+      videoCategoryId: categoryId,
+      part: 'snippet,statistics',
+    };
+
+    const favParams = {
+      id: ids,
+      part: 'snippet,statistics',
+    };
+
     const response = await api.get('/videos', {
-      params: {
-        chart: 'mostPopular',
-        videoCategoryId: categoryId,
-        part: 'snippet,statistics',
-      },
+      params: categoryId === 'favorites' ? favParams : params,
     });
 
     const { items } = response.data;

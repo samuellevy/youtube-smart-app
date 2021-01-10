@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import Track from '../../components/Track';
+import { useFavoritesContext } from '../../context/FavoriteContext';
 import { useKeyboardContext, changeComponent } from '../../context/KeyboardContext';
 import { IVideo } from '../../dtos/IVideo';
 import { IVideoCategory } from '../../dtos/IVideoCategory';
@@ -10,8 +11,9 @@ import { api } from '../../services/mockapi';
 
 import * as S from './styles';
 
-const Home: React.FC = () => {
+const Favorites: React.FC = () => {
   const { keyboard, dispatch }: any = useKeyboardContext();
+  const { favorites }: any = useFavoritesContext();
   const [activePage, setActivePage] = useState(false);
   const [activeItem, setActiveItem] = useState(0);
   const [trackLoading, setTrackLoading] = useState(true);
@@ -25,7 +27,7 @@ const Home: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    if (keyboard.component === 'home') {
+    if (keyboard.component === 'favorites') {
       setActivePage(true);
       controlHandler(keyboard.key);
     }
@@ -56,18 +58,7 @@ const Home: React.FC = () => {
   };
 
   const getCategories = async () => {
-    const response = await api.get('/videoCategories', {
-      params: {
-        regionCode: 'BR',
-      },
-    });
-
-    const tmpVideoCategories: IVideoCategory[] = [];
-
-    // eslint-disable-next-line array-callback-return
-    response.data.items.filter((x:any, key: number) => key < 5 && x).map((item: any):void => {
-      tmpVideoCategories.push({ id: item.id, title: item.snippet.title, videos: [] });
-    });
+    const tmpVideoCategories: IVideoCategory[] = [{ id: 'favorites', title: 'Favoritos', videos: [] }];
 
     setVideoCategories(tmpVideoCategories);
   };
@@ -93,4 +84,4 @@ const Home: React.FC = () => {
     </S.Container>
   );
 };
-export default Home;
+export default Favorites;
