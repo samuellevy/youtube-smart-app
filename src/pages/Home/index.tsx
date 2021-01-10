@@ -1,5 +1,6 @@
 /* eslint-disable array-callback-return */
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import Track from '../../components/Track';
 import { useKeyboardContext, changeComponent } from '../../context/KeyboardContext';
 import { IVideo } from '../../dtos/IVideo';
@@ -15,6 +16,7 @@ const Home: React.FC = () => {
   const [activePage, setActivePage] = useState(false);
   const [activeItem, setActiveItem] = useState(0);
   const [trackLoading, setTrackLoading] = useState(true);
+  const history = useHistory();
 
   const [videoCategories, setVideoCategories] = useState<IVideoCategory[]>([] as IVideoCategory[]);
 
@@ -78,14 +80,9 @@ const Home: React.FC = () => {
     setVideoCategories(tmpVideoCategories);
   };
 
-  // id: videoItem.id,
-  // channelId: videoItem.snippet.channelId,
-  // title: videoItem.snippet.title,
-  // description: videoItem.snippet.description,
-  // publishedAt: videoItem.snippet.publishedAt,
-  // thumbnail: videoItem.snippet.thumbnails.high.url,
-  // channelTitle: videoItem.snippet.channelTitle,
-  // viewCount: videoItem.statistics.viewCount,
+  const handlePlay = (id:string) => {
+    history.push(`/video/?${id}`);
+  };
 
   return (
     <S.Container active={activePage} activeModule={activeItem > 0 ? activeItem : 0}>
@@ -98,6 +95,7 @@ const Home: React.FC = () => {
           id={item.id}
           item={item}
           handleOut={() => { handleOut(); }}
+          handlePlay={(id: string) => { handlePlay(id); }}
         />
       ))}
     </S.Container>

@@ -13,6 +13,7 @@ interface ITrackComponent {
   id?:string;
   handleOut(): void;
   item: IVideoCategory;
+  handlePlay(id: string): void;
 }
 
 interface IVideoCardItem {
@@ -24,7 +25,7 @@ interface IVideoCardItem {
 }
 
 const Track: React.FC<ITrackComponent> = ({
-  active, title, id, handleOut, item,
+  active, title, id, handleOut, item, handlePlay,
 }:ITrackComponent) => {
   const [activeModule, setActiveModule] = useState(false);
   const [initial, setInitial] = useState(true);
@@ -99,7 +100,7 @@ const Track: React.FC<ITrackComponent> = ({
         newActiveItem += data.length - 1 > newActiveItem ? 1 : 0;
         break;
       case 'Enter':
-        alert(data[activeItem].title);
+        handlePlay(data[activeItem].id);
         break;
       default:
         break;
