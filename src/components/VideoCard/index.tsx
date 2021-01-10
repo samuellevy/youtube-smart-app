@@ -1,9 +1,10 @@
 import React from 'react';
+import { IVideo } from '../../dtos/IVideo';
 
 import * as S from './styles';
 
 interface IVideoCardComponent {
-  data: IVideoCardItem;
+  data: IVideo;
   active?: boolean;
 }
 
@@ -18,13 +19,13 @@ interface IVideoCardItem {
 const VideoCard: React.FC<IVideoCardComponent> = ({ data, active }: IVideoCardComponent) => (
   <S.Container>
     <S.ThumbBox active={active}>
-      <S.ThumbImage src="https://i.ytimg.com/vi/vJJX5gmP7oA/mqdefault.jpg" alt="" />
+      <S.ThumbImage src={data.thumbnail.medium.url} alt="" />
     </S.ThumbBox>
     <S.Title>{data.title}</S.Title>
-    <S.Author>{data.author}</S.Author>
+    <S.Author>{data.channelTitle}</S.Author>
     <S.Footer>
       <S.Info>
-        {`${data.views} views • ${data.publishDate}`}
+        {`${data.viewCount} views • ${data.publishedAt}`}
       </S.Info>
     </S.Footer>
   </S.Container>

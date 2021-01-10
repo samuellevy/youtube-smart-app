@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   overflow: hidden;
-  margin-bottom: 150px;
+  height: 80vh;
 `;
 export const Content = styled.div`
   display: flex;

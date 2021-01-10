@@ -31,7 +31,7 @@ export const controlKeyReducer = (state: IKeyboardState, action: any) => {
     case UPDATE_KEY:
       return { ...state, key: action.key, lastKey: state.key };
     case CHANGE_COMPONENT:
-      console.log(action.component);
+      // console.log(action.component);
       return { ...state, component: action.component };
     default:
       return state;

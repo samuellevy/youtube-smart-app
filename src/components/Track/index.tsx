@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useKeyboardContext } from '../../context/KeyboardContext';
+import { IVideo } from '../../dtos/IVideo';
+import { IVideoCategory } from '../../dtos/IVideoCategory';
+import { api } from '../../services/mockapi';
 import VideoCard from '../VideoCard';
 
 import * as S from './styles';
@@ -7,8 +10,9 @@ import * as S from './styles';
 interface ITrackComponent {
   active?:boolean;
   title?:string;
-  id?:number;
+  id?:string;
   handleOut(): void;
+  item: IVideoCategory;
 }
 
 interface IVideoCardItem {
@@ -20,25 +24,25 @@ interface IVideoCardItem {
 }
 
 const Track: React.FC<ITrackComponent> = ({
-  active, title, id, handleOut,
+  active, title, id, handleOut, item,
 }:ITrackComponent) => {
-  const data = [
-    {
-      title: 'Harry Potter e a Pedra Filosofal',
-      author: 'Warner Bros.',
-      views: '1.3M',
-      publishDate: '1 year ago',
-    },
-    {
-      title: 'Harry Potter e a Câmara Secreta',
-      author: 'Warner Bros.',
-      views: '2.3M',
-      publishDate: '2 years ago',
-    },
-  ];
+  // const data = [
+  //   {
+  //     id: 'string',
+  //     publishedAt: 'string',
+  //     channelId: 'string',
+  //     title: 'string',
+  //     description: 'string',
+  //     thumbnail: 'string',
+  //     channelTitle: 'string',
+  //     viewCount: 1,
+  //   },
+  // ];
 
   const [activeModule, setActiveModule] = useState(false);
   const [activeItem, setActiveItem] = useState(0);
+  const [loading, setLoading] = useState(true);
+  const [data, setData] = useState<IVideo[]>([] as IVideo[]);
 
   const { keyboard, dispatch }: any = useKeyboardContext();
 
@@ -55,6 +59,47 @@ const Track: React.FC<ITrackComponent> = ({
       controlHandler(keyboard.key);
     }
   }, [keyboard]);
+
+  useEffect(() => {
+    getData(id!);
+  }, [id]);
+
+  useEffect(() => {
+    if (data.length > 0) {
+      setLoading(false);
+    }
+  }, [data]);
+
+  const getData = async (categoryId: string) => {
+    const response = await api.get('/videos', {
+      params: {
+        chart: 'mostPopular',
+        videoCategoryId: categoryId,
+        part: 'snippet',
+      },
+    });
+
+    const { items } = response.data;
+    const tmpItems: IVideo[] = [];
+
+    items.map((videoItem: any) => {
+      tmpItems.push({
+        id: videoItem.id,
+        channelId: videoItem.snippet.channelId,
+        channelTitle: videoItem.snippet.channelTitle,
+        description: videoItem.snippet.description,
+        publishedAt: videoItem.snippet.publishedAt,
+        thumbnail: videoItem.snippet.thumbnails,
+        title: videoItem.snippet.title,
+        viewCount: videoItem.statistics.viewCount,
+      });
+
+      return true;
+    });
+
+    setData(tmpItems);
+    console.log(tmpItems);
+  };
 
   const controlHandler = (key: string) => {
     let newActiveItem = activeItem;
@@ -79,12 +124,21 @@ const Track: React.FC<ITrackComponent> = ({
 
   return (
     <S.Container>
-      <S.CategoryTitle>{title}</S.CategoryTitle>
-      <S.Content>
-        {data.map((item, key) => (
-          <VideoCard data={item} active={activeItem === key} />
-        ))}
-      </S.Content>
+      {loading ? <h1>Carregando...</h1>
+        : (
+          <>
+            <S.CategoryTitle>{item.title}</S.CategoryTitle>
+            <S.Content>
+              {data.map((videoCardItem: IVideo, key) => (
+                <VideoCard
+                  key={videoCardItem.id}
+                  data={videoCardItem}
+                  active={activeItem === key}
+                />
+              ))}
+            </S.Content>
+          </>
+        )}
     </S.Container>
   );
 };

@@ -33,7 +33,7 @@ const Navigation: React.FC = () => {
   useEffect(() => {
     if (keyboard.component === 'menu') {
       setActiveMenu(true);
-      console.log(keyboard);
+      // console.log(keyboard);
       controlHandler(keyboard.key);
       history.push(`/${items[activeItem].slug}`);
     }
