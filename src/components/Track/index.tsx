@@ -26,21 +26,9 @@ interface IVideoCardItem {
 const Track: React.FC<ITrackComponent> = ({
   active, title, id, handleOut, item,
 }:ITrackComponent) => {
-  // const data = [
-  //   {
-  //     id: 'string',
-  //     publishedAt: 'string',
-  //     channelId: 'string',
-  //     title: 'string',
-  //     description: 'string',
-  //     thumbnail: 'string',
-  //     channelTitle: 'string',
-  //     viewCount: 1,
-  //   },
-  // ];
-
   const [activeModule, setActiveModule] = useState(false);
-  const [activeItem, setActiveItem] = useState(0);
+  const [initial, setInitial] = useState(true);
+  const [activeItem, setActiveItem] = useState(-1);
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState<IVideo[]>([] as IVideo[]);
 
