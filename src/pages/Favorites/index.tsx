@@ -37,15 +37,9 @@ const Favorites: React.FC = () => {
   }, [keyboard]);
 
   const controlHandler = (key: string) => {
-    let newActiveItem = activeItem;
+    const newActiveItem = activeItem;
     switch (key) {
       case 'ArrowLeft':
-        break;
-      case 'ArrowDown':
-        newActiveItem += 5 - 1 > newActiveItem ? 1 : 0;
-        break;
-      case 'ArrowUp':
-        newActiveItem -= newActiveItem === 0 ? 0 : 1;
         break;
       default:
         break;

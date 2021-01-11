@@ -23,6 +23,9 @@ const Search: React.FC = () => {
       setActivePage(true);
       controlHandler(keyboard.key);
     }
+    if (keyboard.component === 'menu') {
+      setActivePage(false);
+    }
   }, [keyboard]);
 
   const controlHandler = (key: string) => {
@@ -65,11 +68,16 @@ const Search: React.FC = () => {
     // dispatch(changeComponent('results'));
   };
 
+  const handleOut = () => {
+    dispatch(changeComponent('menu'));
+    setActivePage(false);
+  };
+
   return (
     <S.Container active={activePage}>
       <S.PageTitle>{queryToSearch}</S.PageTitle>
 
-      <VirtualKeyboard handleQuery={handleQuery} />
+      <VirtualKeyboard handleQuery={handleQuery} handleOut={handleOut} />
     </S.Container>
   );
 };

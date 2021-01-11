@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { useKeyboardContext } from '../../context/KeyboardContext';
+import { changeComponent, useKeyboardContext } from '../../context/KeyboardContext';
 
 import * as K from './styles';
 
 interface IVirtualKeyboard{
   handleQuery(qs: string): void;
+  handleOut():void;
 }
 
-const VirtualKeyboard: React.FC<IVirtualKeyboard> = ({ handleQuery }: IVirtualKeyboard) => {
+const VirtualKeyboard: React.FC<IVirtualKeyboard> = ({
+  handleQuery,
+  handleOut,
+}: IVirtualKeyboard) => {
   const keyMap = [
     ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '+', 'del'],
     ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\\'],
@@ -56,6 +60,10 @@ const VirtualKeyboard: React.FC<IVirtualKeyboard> = ({ handleQuery }: IVirtualKe
         break;
       case 'Enter':
         handleQuery(keyMap[activeKey[1]][activeKey[0]]);
+        break;
+      case 'Escape':
+        setActiveKeyboard(false);
+        handleOut();
         break;
       default:
         break;

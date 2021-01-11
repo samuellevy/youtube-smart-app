@@ -696,5 +696,187 @@
       "totalResults": 200,
       "resultsPerPage": 5
     }
+  },
+  "search": {
+    "kind": "youtube#searchListResponse",
+    "etag": "wDzW-LC5IErHpww4s7U0ghcnGcA",
+    "nextPageToken": "CAUQAA",
+    "regionCode": "BR",
+    "pageInfo": {
+      "totalResults": 1000000,
+      "resultsPerPage": 5
+    },
+    "items": [
+      {
+        "kind": "youtube#searchResult",
+        "etag": "DcR9ps69EMoPOcp6jfpXQj-9FJs",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "0J8nAzl2bv4"
+        },
+        "snippet": {
+          "publishedAt": "2019-04-18T14:58:11Z",
+          "channelId": "UCWmh948hhrAwDkOfkzNGAaQ",
+          "title": "IZA - Brisa",
+          "description": "Assista Brisa, meu novo clipe! ➔ Ouça nas plataformas digitais: https://lnk.to/Brisa FICHA TÉCNICA Direção: Felipe Sassi Roteiro: Felipe Sassi e IZA Direção ...",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/0J8nAzl2bv4/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/0J8nAzl2bv4/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/0J8nAzl2bv4/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            }
+          },
+          "channelTitle": "IZA",
+          "liveBroadcastContent": "none",
+          "publishTime": "2019-04-18T14:58:11Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "35FKccFnwDOJkUCErgo4y3k_KHw",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "g8psa0UBZKA"
+        },
+        "snippet": {
+          "publishedAt": "2017-10-05T21:02:56Z",
+          "channelId": "UCWmh948hhrAwDkOfkzNGAaQ",
+          "title": "IZA - Pesadão (Participação especial Marcelo Falcão)",
+          "description": "Meu novo clipe \"Pesadão\" com a participação do incrível Marcelo Falcão já está no ar! Siga IZA nas redes: Instagram: http://instagram.com/iza Facebook: ...",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/g8psa0UBZKA/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/g8psa0UBZKA/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/g8psa0UBZKA/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            }
+          },
+          "channelTitle": "IZA",
+          "liveBroadcastContent": "none",
+          "publishTime": "2017-10-05T21:02:56Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "Y-bqN_GqExRhju-OgjXzXP6vW5E",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "FnGfgb_YNE8"
+        },
+        "snippet": {
+          "publishedAt": "2018-09-28T16:19:15Z",
+          "channelId": "UCWmh948hhrAwDkOfkzNGAaQ",
+          "title": "IZA - Dona de Mim",
+          "description": "Assista meu novo clipe 'Dona De Mim' Siga IZA nas redes: Instagram: http://instagram.com/iza Facebook: https://www.facebook.com/pg/aizaoficial/ YouTube: ...",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/FnGfgb_YNE8/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/FnGfgb_YNE8/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/FnGfgb_YNE8/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            }
+          },
+          "channelTitle": "IZA",
+          "liveBroadcastContent": "none",
+          "publishTime": "2018-09-28T16:19:15Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "rhLwPF6rhmwVyX8hYYKUa3L15hU",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "TXtXUGxWATw"
+        },
+        "snippet": {
+          "publishedAt": "2019-08-23T03:00:11Z",
+          "channelId": "UCWmh948hhrAwDkOfkzNGAaQ",
+          "title": "IZA - Meu Talismã",
+          "description": "Assista \"Meu Talismã\", meu novo clipe! 🧿 FICHA TÉCNICA Direção: Felipe Sassi Roteiro: Felipe Sassi e IZA Assistência de Direção (1º) : Lucas Romano ...",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/TXtXUGxWATw/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/TXtXUGxWATw/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/TXtXUGxWATw/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            }
+          },
+          "channelTitle": "IZA",
+          "liveBroadcastContent": "none",
+          "publishTime": "2019-08-23T03:00:11Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "keS1FwU9mJMmvnqQPu3cD023AgA",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "9UPGGgKoir8"
+        },
+        "snippet": {
+          "publishedAt": "2020-08-21T14:00:10Z",
+          "channelId": "UCftm0MlbYmqhK00o8NZEkDw",
+          "title": "Bruno Martini, IZA, Timbaland - Bend The Knee",
+          "description": "Clique e ouça/ Click and listen: https://umusicbrazil.lnk.to/BendTheKneeYD FOLLOW BRUNO MARTINI http://www.brunomartini.com/ ...",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/9UPGGgKoir8/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/9UPGGgKoir8/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/9UPGGgKoir8/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            }
+          },
+          "channelTitle": "BrunoMartiniVEVO",
+          "liveBroadcastContent": "none",
+          "publishTime": "2020-08-21T14:00:10Z"
+        }
+      }
+    ]
   }
 }

@@ -4,7 +4,7 @@ import { useKeyboardContext } from '../../context/KeyboardContext';
 import { IVideo } from '../../dtos/IVideo';
 import { IVideoCategory } from '../../dtos/IVideoCategory';
 import { IVideoEntityReq } from '../../dtos/IVideoEntityReq';
-import { api } from '../../services/api';
+import { api } from '../../services/mockapi';
 import VideoCard from '../VideoCard';
 
 import * as S from './styles';
@@ -48,9 +48,6 @@ const Track: React.FC<ITrackComponent> = ({
   }, [active]);
 
   useEffect(() => {
-    if (keyboard.component === 'results') {
-      setActiveItem(0);
-    }
     if (keyboard.component === 'home' || keyboard.component === 'favorites' || keyboard.component === 'results') {
       if (active && keyboard.key !== '') {
         console.log(keyboard.key);
@@ -138,8 +135,9 @@ const Track: React.FC<ITrackComponent> = ({
     const tmpItems: IVideo[] = [];
 
     items.map((videoItem: any) => {
+      console.log(videoItem);
       tmpItems.push({
-        id: videoItem.id,
+        id: videoItem.id.videoId,
         channelId: videoItem.snippet.channelId,
         channelTitle: videoItem.snippet.channelTitle,
         description: videoItem.snippet.description,
@@ -166,7 +164,8 @@ const Track: React.FC<ITrackComponent> = ({
         newActiveItem += data.length - 1 > newActiveItem ? 1 : 0;
         break;
       case 'Enter':
-        if (keyboard.component !== 'results') {
+        if (activeItem) {
+          console.log(data[activeItem]);
           handlePlay(data[activeItem].id);
         }
         break;
