@@ -11,7 +11,7 @@ import { api } from '../../services/mockapi';
 
 import * as S from './styles';
 
-const Favorites: React.FC = () => {
+const Results: React.FC = () => {
   const { keyboard, dispatch }: any = useKeyboardContext();
   const { favorites }: any = useFavoritesContext();
   const [activePage, setActivePage] = useState(false);
@@ -19,46 +19,31 @@ const Favorites: React.FC = () => {
   const [trackLoading, setTrackLoading] = useState(true);
   const history = useHistory();
 
+  const [resultData, setResultData] = useState<IVideo[]>([] as IVideo[]);
+
   const [videoCategories, setVideoCategories] = useState<IVideoCategory[]>([] as IVideoCategory[]);
 
   useEffect(() => {
-    dispatch(changeComponent('menu'));
+    dispatch(changeComponent('results'));
     getCategories();
+    // // getDataSearch();
+    // setActiveItem(0);
+    setActivePage(true);
   }, []);
 
   useEffect(() => {
-    if (keyboard.component === 'favorites') {
-      setActivePage(true);
-      controlHandler(keyboard.key);
-    }
     if (keyboard.component === 'menu') {
       setActivePage(false);
     }
   }, [keyboard]);
-
-  const controlHandler = (key: string) => {
-    let newActiveItem = activeItem;
-    switch (key) {
-      case 'ArrowLeft':
-        break;
-      case 'ArrowDown':
-        newActiveItem += 5 - 1 > newActiveItem ? 1 : 0;
-        break;
-      case 'ArrowUp':
-        newActiveItem -= newActiveItem === 0 ? 0 : 1;
-        break;
-      default:
-        break;
-    }
-    setActiveItem(newActiveItem);
-  };
 
   const handleOut = () => {
     dispatch(changeComponent('menu'));
   };
 
   const getCategories = async () => {
-    const tmpVideoCategories: IVideoCategory[] = [{ id: 'favorites', title: 'Favoritos', videos: [] }];
+    const tmpVideoCategories: IVideoCategory[] = [
+      { id: 'query', title: 'Pesquisa', videos: [] }];
 
     setVideoCategories(tmpVideoCategories);
   };
@@ -78,9 +63,11 @@ const Favorites: React.FC = () => {
           item={item}
           handleOut={() => { handleOut(); }}
           handlePlay={(id: string) => { handlePlay(id); }}
+          // directData={resultData}
+          query="iza"
         />
       ))}
     </S.Container>
   );
 };
-export default Favorites;
+export default Results;

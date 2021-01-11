@@ -3,6 +3,7 @@ import { useFavoritesContext } from '../../context/FavoriteContext';
 import { useKeyboardContext } from '../../context/KeyboardContext';
 import { IVideo } from '../../dtos/IVideo';
 import { IVideoCategory } from '../../dtos/IVideoCategory';
+import { IVideoEntityReq } from '../../dtos/IVideoEntityReq';
 import { api } from '../../services/api';
 import VideoCard from '../VideoCard';
 
@@ -15,6 +16,7 @@ interface ITrackComponent {
   handleOut(): void;
   item: IVideoCategory;
   handlePlay(id: string): void;
+  query?: string;
 }
 
 interface IVideoCardItem {
@@ -26,11 +28,11 @@ interface IVideoCardItem {
 }
 
 const Track: React.FC<ITrackComponent> = ({
-  active, title, id, handleOut, item, handlePlay,
+  active, title, id, handleOut, item, handlePlay, query = '',
 }:ITrackComponent) => {
   const [activeModule, setActiveModule] = useState(false);
   const [initial, setInitial] = useState(true);
-  const [activeItem, setActiveItem] = useState(-1);
+  const [activeItem, setActiveItem] = useState(0);
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState<IVideo[]>([] as IVideo[]);
 
@@ -46,15 +48,23 @@ const Track: React.FC<ITrackComponent> = ({
   }, [active]);
 
   useEffect(() => {
-    if (keyboard.component === 'home' || keyboard.component === 'favorites') {
+    if (keyboard.component === 'results') {
+      setActiveItem(0);
+    }
+    if (keyboard.component === 'home' || keyboard.component === 'favorites' || keyboard.component === 'results') {
       if (active && keyboard.key !== '') {
+        console.log(keyboard.key);
         controlHandler(keyboard.key);
       }
     }
   }, [keyboard]);
 
   useEffect(() => {
-    getData(id!);
+    if (id === 'query') {
+      getQueryData(query);
+    } else {
+      getData(id!);
+    }
   }, [id]);
 
   useEffect(() => {
@@ -73,7 +83,6 @@ const Track: React.FC<ITrackComponent> = ({
 
     ids = ids.substr(0, ids.length - 1);
     console.log(ids);
-
     const params = {
       chart: 'mostPopular',
       videoCategoryId: categoryId,
@@ -111,6 +120,42 @@ const Track: React.FC<ITrackComponent> = ({
     console.log(tmpItems);
   };
 
+  const getQueryData = async (q: string) => {
+    const ids = '';
+    setActiveItem(0);
+
+    const params = {
+      type: 'video',
+      part: 'snippet',
+      q,
+    };
+
+    const response = await api.get('/search', {
+      params,
+    });
+
+    const { items } = response.data;
+    const tmpItems: IVideo[] = [];
+
+    items.map((videoItem: any) => {
+      tmpItems.push({
+        id: videoItem.id,
+        channelId: videoItem.snippet.channelId,
+        channelTitle: videoItem.snippet.channelTitle,
+        description: videoItem.snippet.description,
+        publishedAt: videoItem.snippet.publishedAt,
+        thumbnail: videoItem.snippet.thumbnails,
+        title: videoItem.snippet.title,
+        viewCount: 0,
+      });
+
+      return true;
+    });
+
+    setData(tmpItems);
+    console.log(tmpItems);
+  };
+
   const controlHandler = (key: string) => {
     let newActiveItem = activeItem;
     switch (key) {
@@ -121,12 +166,15 @@ const Track: React.FC<ITrackComponent> = ({
         newActiveItem += data.length - 1 > newActiveItem ? 1 : 0;
         break;
       case 'Enter':
-        handlePlay(data[activeItem].id);
+        if (keyboard.component !== 'results') {
+          handlePlay(data[activeItem].id);
+        }
         break;
       default:
         break;
     }
     setActiveItem(newActiveItem);
+    console.log(newActiveItem);
     if (newActiveItem === -1) {
       handleOut();
     }

@@ -4,6 +4,7 @@ import Navigation from '../components/Navigation';
 import Favorites from '../pages/Favorites';
 
 import Home from '../pages/Home';
+import Results from '../pages/Results';
 import Search from '../pages/Search';
 
 const Routes: React.FC = () => (
@@ -13,6 +14,7 @@ const Routes: React.FC = () => (
       <Route path="/" exact component={Search} />
       <Route path="/search" exact component={Search} />
       <Route path="/home" exact component={Home} />
+      <Route path="/results" exact component={Results} />
       <Route path="/favorites" exact component={Favorites} />
     </Switch>
   </>
