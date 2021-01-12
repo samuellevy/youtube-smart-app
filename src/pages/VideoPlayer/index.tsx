@@ -30,10 +30,6 @@ const VideoPlayer: React.FC = () => {
     getData(urlParams.substr(1));
   }, [urlParams]);
 
-  useEffect(() => {
-    console.log(favorites);
-  }, [favorites]);
-
   const getData = async (id: string) => {
     const response = await api.get('/videos', {
       params: {

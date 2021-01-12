@@ -37,7 +37,6 @@ export const favoriteReducer = (state: IFavoritesState, action: any) => {
       if (totalSameFavorite === 0) {
         tmpFavorites.push(action.favorite);
       }
-      console.log(tmpFavorites);
       return { ...state, favorites: tmpFavorites };
     default:
       return state;

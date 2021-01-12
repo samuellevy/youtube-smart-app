@@ -50,7 +50,6 @@ const Track: React.FC<ITrackComponent> = ({
   useEffect(() => {
     if (keyboard.component === 'home' || keyboard.component === 'favorites' || keyboard.component === 'results') {
       if (active && keyboard.key !== '') {
-        console.log(keyboard.key);
         controlHandler(keyboard.key);
       }
     }
@@ -79,7 +78,6 @@ const Track: React.FC<ITrackComponent> = ({
     });
 
     ids = ids.substr(0, ids.length - 1);
-    console.log(ids);
     const params = {
       chart: 'mostPopular',
       videoCategoryId: categoryId,
@@ -114,7 +112,6 @@ const Track: React.FC<ITrackComponent> = ({
     });
 
     setData(tmpItems);
-    console.log(tmpItems);
   };
 
   const getQueryData = async (q: string) => {
@@ -135,7 +132,6 @@ const Track: React.FC<ITrackComponent> = ({
     const tmpItems: IVideo[] = [];
 
     items.map((videoItem: any) => {
-      console.log(videoItem);
       tmpItems.push({
         id: videoItem.id.videoId,
         channelId: videoItem.snippet.channelId,
@@ -151,7 +147,6 @@ const Track: React.FC<ITrackComponent> = ({
     });
 
     setData(tmpItems);
-    console.log(tmpItems);
   };
 
   const controlHandler = (key: string) => {
@@ -165,7 +160,6 @@ const Track: React.FC<ITrackComponent> = ({
         break;
       case 'Enter':
         if (activeItem) {
-          console.log(data[activeItem]);
           handlePlay(data[activeItem].id);
         }
         break;
@@ -173,7 +167,6 @@ const Track: React.FC<ITrackComponent> = ({
         break;
     }
     setActiveItem(newActiveItem);
-    console.log(newActiveItem);
     if (newActiveItem === -1) {
       handleOut();
     }

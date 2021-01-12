@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import React, { useEffect, useState } from 'react';
 import { changeComponent, useKeyboardContext } from '../../context/KeyboardContext';
 
@@ -78,9 +79,9 @@ const VirtualKeyboard: React.FC<IVirtualKeyboard> = ({
   return (
     <K.Container>
       {keyMap.map((column: any, keyY: number) => (
-        <K.Line>
+        <K.Line key={`keymap-${keyY}`}>
           {column.map((key: any, keyX: number) => (
-            <K.Key active={activeKey[0] === keyX && activeKey[1] === keyY}>{key}</K.Key>
+            <K.Key key={`${key}-${keyX}`} active={activeKey[0] === keyX && activeKey[1] === keyY}>{key}</K.Key>
           ))}
         </K.Line>
       ))}

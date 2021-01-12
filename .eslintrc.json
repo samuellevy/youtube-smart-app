@@ -23,7 +23,7 @@
     ],
     "rules": {
         "react-hooks/rules-of-hooks": "error",
-        "react-hooks/exhaustive-deps": "warn",
+        "react-hooks/exhaustive-deps": "off",
         "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
         "import/prefer-default-export": "off",
         "camelcase": "off",
@@ -38,6 +38,7 @@
         "react/no-unused-prop-types": "off",
         "react/require-default-props": "off",
         "consistent-return": "off",
+        "@typescript-eslint/no-non-null-assertion":"off",
         "import/extensions": [
             "error",
             "ignorePackages",
