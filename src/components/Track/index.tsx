@@ -4,7 +4,7 @@ import { useKeyboardContext } from '../../context/KeyboardContext';
 import { IVideo } from '../../dtos/IVideo';
 import { IVideoCategory } from '../../dtos/IVideoCategory';
 import { IVideoEntityReq } from '../../dtos/IVideoEntityReq';
-import { api } from '../../services/mockapi';
+import { api } from '../../services/api';
 import VideoCard from '../VideoCard';
 
 import * as S from './styles';

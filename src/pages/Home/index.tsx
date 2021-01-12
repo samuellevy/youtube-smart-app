@@ -6,7 +6,7 @@ import { useKeyboardContext, changeComponent } from '../../context/KeyboardConte
 import { IVideo } from '../../dtos/IVideo';
 import { IVideoCategory } from '../../dtos/IVideoCategory';
 import { IVideoEntityReq } from '../../dtos/IVideoEntityReq';
-import { api } from '../../services/mockapi';
+import { api } from '../../services/api';
 
 import * as S from './styles';
 
