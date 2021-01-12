@@ -36,7 +36,8 @@
     "test": "react-scripts test",
     "test:coverage": "react-scripts test --coverage --watchAll false ",
     "eject": "react-scripts eject",
-    "server": "json-server mockapi.json -p 3333"
+    "server": "json-server mockapi.json -p 3333",
+    "postinstall": "tsc"
   },
   "jest": {
     "collectCoverageFrom": [
