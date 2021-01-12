@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<VideoPlayer /> component should render properly 1`] = `
+<div
+  className="sc-bdfBwQ gHlEAy"
+>
+  <h1>
+    Carregando...
+  </h1>
+  <div
+    className="sc-gsTCUz kNSsXs"
+  >
+    <button
+      className="sc-dlfnbm dUsTiH"
+    >
+      Continuar
+    </button>
+    <button
+      className="sc-dlfnbm cCrvPm"
+    >
+      Adicionar aos favoritos
+    </button>
+  </div>
+</div>
+`;

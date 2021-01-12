@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Search /> component should render properly 1`] = `
+<div
+  className="sc-bdfBwQ crPqTE"
+>
+  <div
+    className="sc-gsTCUz ldhubU"
+  >
+    <img
+      alt=""
+      className="sc-dlfnbm bevxTP"
+      src=""
+    />
+  </div>
+  <h2
+    className="sc-hKgILt"
+  >
+    title
+  </h2>
+  <div
+    className="sc-eCssSg kZBOjq"
+  >
+    teste
+  </div>
+  <div
+    className="sc-jSgupP kvgBhb"
+  >
+    <div
+      className="sc-gKsewC"
+    >
+      1 views • published
+    </div>
+  </div>
+</div>
+`;

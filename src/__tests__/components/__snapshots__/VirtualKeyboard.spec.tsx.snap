@@ -1,0 +1,281 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Search /> component should render properly 1`] = `
+<div
+  className="sc-bdfBwQ kVOLiH"
+>
+  <div
+    className="sc-gsTCUz kNNvzq"
+  >
+    <div
+      className="sc-dlfnbm ghevfs"
+    >
+      1
+    </div>
+    <div
+      className="sc-dlfnbm ghevfs"
+    >
+      2
+    </div>
+    <div
+      className="sc-dlfnbm ghevfs"
+    >
+      3
+    </div>
+    <div
+      className="sc-dlfnbm ghevfs"
+    >
+      4
+    </div>
+    <div
+      className="sc-dlfnbm ghevfs"
+    >
+      5
+    </div>
+    <div
+      className="sc-dlfnbm ghevfs"
+    >
+      6
+    </div>
+    <div
+      className="sc-dlfnbm ghevfs"
+    >
+      7
+    </div>
+    <div
+      className="sc-dlfnbm ghevfs"
+    >
+      8
+    </div>
+    <div
+      className="sc-dlfnbm ghevfs"
+    >
+      9
+    </div>
+    <div
+      className="sc-dlfnbm ghevfs"
+    >
+      0
+    </div>
+    <div
+      className="sc-dlfnbm ghevfs"
+    >
+      -
+    </div>
+    <div
+      className="sc-dlfnbm ghevfs"
+    >
+      +
+    </div>
+    <div
+      className="sc-dlfnbm ghevfs"
+    >
+      del
+    </div>
+  </div>
+  <div
+    className="sc-gsTCUz kNNvzq"
+  >
+    <div
+      className="sc-dlfnbm ghevfs"
+    >
+      q
+    </div>
+    <div
+      className="sc-dlfnbm ghevfs"
+    >
+      w
+    </div>
+    <div
+      className="sc-dlfnbm ghevfs"
+    >
+      e
+    </div>
+    <div
+      className="sc-dlfnbm ghevfs"
+    >
+      r
+    </div>
+    <div
+      className="sc-dlfnbm ghevfs"
+    >
+      t
+    </div>
+    <div
+      className="sc-dlfnbm ghevfs"
+    >
+      y
+    </div>
+    <div
+      className="sc-dlfnbm ghevfs"
+    >
+      u
+    </div>
+    <div
+      className="sc-dlfnbm ghevfs"
+    >
+      i
+    </div>
+    <div
+      className="sc-dlfnbm ghevfs"
+    >
+      o
+    </div>
+    <div
+      className="sc-dlfnbm ghevfs"
+    >
+      p
+    </div>
+    <div
+      className="sc-dlfnbm ghevfs"
+    >
+      [
+    </div>
+    <div
+      className="sc-dlfnbm ghevfs"
+    >
+      ]
+    </div>
+    <div
+      className="sc-dlfnbm ghevfs"
+    >
+      \\
+    </div>
+  </div>
+  <div
+    className="sc-gsTCUz kNNvzq"
+  >
+    <div
+      className="sc-dlfnbm ghevfs"
+    >
+      a
+    </div>
+    <div
+      className="sc-dlfnbm ghevfs"
+    >
+      s
+    </div>
+    <div
+      className="sc-dlfnbm ghevfs"
+    >
+      d
+    </div>
+    <div
+      className="sc-dlfnbm ghevfs"
+    >
+      f
+    </div>
+    <div
+      className="sc-dlfnbm ghevfs"
+    >
+      g
+    </div>
+    <div
+      className="sc-dlfnbm ghevfs"
+    >
+      h
+    </div>
+    <div
+      className="sc-dlfnbm ghevfs"
+    >
+      j
+    </div>
+    <div
+      className="sc-dlfnbm ghevfs"
+    >
+      k
+    </div>
+    <div
+      className="sc-dlfnbm ghevfs"
+    >
+      l
+    </div>
+    <div
+      className="sc-dlfnbm ghevfs"
+    >
+      ;
+    </div>
+    <div
+      className="sc-dlfnbm ghevfs"
+    >
+      "
+    </div>
+    <div
+      className="sc-dlfnbm ghevfs"
+    >
+      enter
+    </div>
+  </div>
+  <div
+    className="sc-gsTCUz kNNvzq"
+  >
+    <div
+      className="sc-dlfnbm ghevfs"
+    >
+      shift
+    </div>
+    <div
+      className="sc-dlfnbm ghevfs"
+    >
+      z
+    </div>
+    <div
+      className="sc-dlfnbm ghevfs"
+    >
+      x
+    </div>
+    <div
+      className="sc-dlfnbm ghevfs"
+    >
+      c
+    </div>
+    <div
+      className="sc-dlfnbm ghevfs"
+    >
+      v
+    </div>
+    <div
+      className="sc-dlfnbm ghevfs"
+    >
+      b
+    </div>
+    <div
+      className="sc-dlfnbm ghevfs"
+    >
+      n
+    </div>
+    <div
+      className="sc-dlfnbm ghevfs"
+    >
+      m
+    </div>
+    <div
+      className="sc-dlfnbm ghevfs"
+    >
+      ,
+    </div>
+    <div
+      className="sc-dlfnbm ghevfs"
+    >
+      .
+    </div>
+    <div
+      className="sc-dlfnbm ghevfs"
+    >
+      ?
+    </div>
+  </div>
+  <div
+    className="sc-gsTCUz kNNvzq"
+  >
+    <div
+      className="sc-dlfnbm ghevfs"
+    >
+      space
+    </div>
+  </div>
+  <div
+    className="sc-gsTCUz kNNvzq"
+  />
+</div>
+`;
