@@ -1,6 +1,6 @@
 /* eslint-disable array-callback-return */
 import React, { useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import Track from '../../components/Track';
 import { useFavoritesContext } from '../../context/FavoriteContext';
 import { useKeyboardContext, changeComponent } from '../../context/KeyboardContext';
@@ -12,12 +12,13 @@ import { api } from '../../services/api';
 import * as S from './styles';
 
 const Results: React.FC = () => {
+  const urlParams = useLocation().search;
   const { keyboard, dispatch }: any = useKeyboardContext();
-  const { favorites }: any = useFavoritesContext();
   const [activePage, setActivePage] = useState(false);
   const [activeItem, setActiveItem] = useState(0);
-  const [trackLoading, setTrackLoading] = useState(true);
   const history = useHistory();
+
+  const [queryToSearch, setQueryToSearch] = useState('');
 
   const [resultData, setResultData] = useState<IVideo[]>([] as IVideo[]);
 
@@ -25,11 +26,17 @@ const Results: React.FC = () => {
 
   useEffect(() => {
     dispatch(changeComponent('results'));
-    getCategories();
+    // getCategories();
     // // getDataSearch();
     // setActiveItem(0);
     setActivePage(true);
   }, []);
+
+  useEffect(() => {
+    // console.log(urlParams.substr(3));
+    setQueryToSearch(urlParams.substr(3));
+    getCategories();
+  }, [urlParams]);
 
   useEffect(() => {
     if (keyboard.component === 'menu') {
@@ -64,7 +71,7 @@ const Results: React.FC = () => {
           handleOut={() => { handleOut(); }}
           handlePlay={(id: string) => { handlePlay(id); }}
           // directData={resultData}
-          query="iza"
+          query={queryToSearch}
         />
       ))}
     </S.Container>

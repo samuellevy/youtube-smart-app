@@ -64,7 +64,7 @@ const Search: React.FC = () => {
   };
 
   const handleSearch = () => {
-    history.push('/results');
+    history.push(`/results/?q=${queryToSearch}`);
     // dispatch(changeComponent('results'));
   };
 
