@@ -1,46 +1,53 @@
-# Getting Started with Create React App
+# Teste Canais Globo
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Objetivo
 
-## Available Scripts
+![GloboTest](./objetivo.png)
 
-In the project directory, you can run:
+### Ambiente
 
-### `yarn start`
+`nodejs v12.18.3`  
+`npm 6.14.6`  
+`yarn 1.22.5`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Para execução
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Clone este repositório  
+  `git clone git@github.com:samuellevy/youtube-smart-app.git`
 
-### `yarn test`
+- Instale as dependências usando o seu gerenciador de pacotes.  
+  `yarn` ou `npm install`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Teste a aplicação.  
+  `yarn test` ou `npm run test`
 
-### `yarn build`
+- Execute a aplicação.  
+  `yarn start` ou `npm start`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Bibliotecas utilizadas
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+`styled-components` - para criação mais rápida de componentes sem ciclo de vida e estilizados, pois é o que uso no meu dia-a-dia há um tempo para React, apesar de não ser um problema técnico não usar BEM css.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+`axios` - para requisições http, pois é super adaptativo a browsers antigos.
 
-### `yarn eject`
+### Considerações
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Foi respeitada a regra de `não utilize o Redux nem bibliotecas prontas para navegação e slider.`.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Utilizei `flex-box`, pois nas orientações não falava sobre não poder usá-lo, apesar de saber que em Smartvs não se usa, por ser comum os browsers serem antigos.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- Preferi usar uma arquiteura mais simples, separada em components, scenes para as páginas (que no caso só tem uma), services, contexts.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- O arquivo [TODO.md](./TODO.md) tem todo o planejamento para a execução do teste.
 
-## Learn More
+### O que eu faria diferente:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Criaria um componente único para o estilo de página que lista os tracks e os vídeos, pois atualmente está com bastante redundância de código.  
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Melhoraria o uso do teclado virtual. Criei um pois não achei nenhum que me agradasse já implementado em React.  
+
+- Talvez menos prop-drilling e mais contexts.  
+
+- Exploraria melhor a API do Youtube e buscaria funcionalidades interessantes para implementar.  
+
+#### Obrigado pela oportunidade!

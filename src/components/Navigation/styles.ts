@@ -10,7 +10,7 @@ interface IItem {
   activeMenu?:boolean;
 }
 
-export const Container = styled.div<IContainerMenu>`
+export const Container = styled.nav<IContainerMenu>`
   position: fixed;
   width: 220px;
   background-color: black;

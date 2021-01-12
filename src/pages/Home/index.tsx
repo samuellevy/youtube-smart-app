@@ -77,7 +77,7 @@ const Home: React.FC = () => {
   };
 
   return (
-    <S.Container active={activePage} activeModule={activeItem > 0 ? activeItem : 0}>
+    <S.Container data-testid="home" active={activePage} activeModule={activeItem > 0 ? activeItem : 0}>
       <S.PageTitle>HOME</S.PageTitle>
       {videoCategories.map((item: IVideoCategory, key) => (
         <Track

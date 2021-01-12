@@ -59,7 +59,7 @@ const Navigation: React.FC = () => {
   };
 
   return (
-    <S.Container active={activeMenu}>
+    <S.Container active={activeMenu} data-testid="navigation">
       <S.Header>
         <S.Avatar />
         <span>Entrar</span>
